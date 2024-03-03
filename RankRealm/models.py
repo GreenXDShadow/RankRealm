@@ -8,6 +8,12 @@ from django.utils.translation import gettext_lazy as _  # Import for text transl
     its own by default. I also want to note that the many to Many relationships may change but for now they are there
     for flexibility. I have added first positional arguments to almost all the database fields to designate 
     human-readable names which is a little overkill but I want it to be as easy to read as possible
+    
+    Remember the three-step guide to making model changes:
+
+    -Change your models (in models.py). 
+    -Run python manage.py makemigrations to create migrations for those changes
+    -Run python manage.py migrate to apply those changes to the database.
 """
 
 # Define a user profile model to extend user information with roles and additional details
