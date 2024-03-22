@@ -29,18 +29,18 @@ ALLOWED_HOSTS = []
 
 
 # Application definition
-
-INSTALLED_APPS = [
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
-    'RankRealm.apps.RankrealmConfig',
+INSTALLED_APPS = [  # APPS included by default
+    'RankRealm.apps.RankrealmConfig',  # Include our app in our project
+    'django.contrib.admin',  # The admin site
+    'django.contrib.auth',  # An authentication system
+    'django.contrib.contenttypes',  # A framework for content types
+    'django.contrib.sessions',  # A session framework
+    'django.contrib.messages',  # a messaging framework
+    'django.contrib.staticfiles',  # A framework for managing static files
 ]
 
-MIDDLEWARE = [
+
+MIDDLEWARE = [  # Middleman in the processing of requests and responses in a Django web application
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
