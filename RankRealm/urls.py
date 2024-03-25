@@ -3,12 +3,12 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    # ex: /polls/
+    # ex: /
     path("", views.index, name="index"),
-    # ex: /polls/5/
-    path("<int:game_id>/", views.detail, name="detail"),
-    # ex: /polls/5/results/
-    path("<int:game_id>/leaderboard/", views.leaderboard, name="leaderboard"),
-    # ex: /polls/5/vote/
-    path("<int:game_id>/joingame/", views.join_game, name="joingame"),
+    # ex: port/game/15
+    path("game/<int:game_id>/", views.gameinfo, name="gameinfo"),
+    # ex: port/user/10
+    path("user/<int:user_id>/", views.userprofile, name="userprofile"),
+    # ex: port/joingame/10/15
+    path("joingame/<int:user_id>/<int:game_id>", views.joingame, name="joingame"),
 ]

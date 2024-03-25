@@ -78,7 +78,7 @@ class Event(models.Model):
     start_date = models.DateTimeField("start date")
     end_date = models.DateTimeField("end date")
     organizer = models.ForeignKey(Profile, verbose_name="event organizer", related_name='organized_events', on_delete=models.CASCADE)  # Link to organizer
-    participants = models.ManyToManyField(PlayerPerformance, verbose_name="event participants")  # Many-to-many relationship for event participants
+    participants = models.ManyToManyField(Profile, verbose_name="event participants")  # Many-to-many relationship for event participants
 
     def __str__(self):
         return f"{self.name} for {self.game.title} by {self.organizer.username}"

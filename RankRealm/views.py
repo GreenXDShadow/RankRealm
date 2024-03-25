@@ -9,14 +9,14 @@ def index(request):
     return HttpResponse("Hello, world. You're at the index page.")
 
 
-def detail(request, game_id):
+def gameinfo(request, game_id):
     return HttpResponse("You're looking at %s." % game_id)
 
 
-def leaderboard(request, game_id):
-    response = "You're looking at the leaderboard of %s."
-    return HttpResponse(response % game_id)
+def userprofile(request, user_id):
+    response = "You're looking at %s's profile."
+    return HttpResponse(response % user_id)
 
 
-def join_game(request, game_id):
+def joingame(request, game_id):
     return HttpResponse("You're adding yourself to %s." % game_id)
