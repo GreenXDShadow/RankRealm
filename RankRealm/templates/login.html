@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="../static/style.css">
 <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
 <title>Login | Rank Realm</title>
 <script>
@@ -44,7 +44,8 @@ function switchForm() {
             <button type="button" onclick="switchForm()">Register</button>
         </div>
     </form>
-    <form id="registerForm" action="" style="display:none">
+    <form id="registerForm" action="{% url 'register' %}" method="post" style="display:none">
+        {% csrf_token %}
         <h1>Register</h1>
         <div class="input-box">
             <input type="text" name="username" placeholder="Username" required>

@@ -12,4 +12,6 @@ urlpatterns = [
     path("user/<int:user_id>/", views.userprofile, name="userprofile"),
     # ex: port/joingame/10/15
     path("joingame/<int:user_id>/<int:game_id>", views.joingame, name="joingame"),
+    # port/register
+    path('register/', views.register, name='register'),
 ]
