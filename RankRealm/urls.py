@@ -13,5 +13,7 @@ urlpatterns = [
     # ex: port/joingame/10/15
     path("joingame/<int:user_id>/<int:game_id>", views.joingame, name="joingame"),
     # port/register
-    path('register/', views.register, name='register'),
+    path('register/', views.login, name='login'),
+    # port/register/new
+    path("register/new", views.register, name='register')
 ]
