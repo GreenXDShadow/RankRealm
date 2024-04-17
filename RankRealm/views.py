@@ -5,6 +5,10 @@ from django.contrib.auth import authenticate, login  # imported for login auth
 from django.http import HttpResponse
 from .models import *  # This imports all our models into here
 from .signals import *
+from django.contrib.auth import authenticate, login
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
+from django.shortcuts import render, redirect
+
 
 
 def index(request):
@@ -25,22 +29,23 @@ def joingame(request, game_id):
 
 # registration form
 def login(request):
-    if request.method == "POST":
-        username = request.POST.get('username')
-        password = request.POST.get('password')
-        user = authenticate(request, username=username, password=password)  # User authentication
-        login(request, user)  # Log in the newly created user
-        return redirect('index')  # Redirect to a success page or home page
-    return render(request, 'login.html')  # Show the registration form again if not POST
+    if request.method == 'POST':
+        form = AuthenticationForm(request, data=request.POST)
+        if form.is_valid():
+            user = form.get_user()
+            login(request, user)
+            return redirect('index')  # Redirect to a success page or home page
+    else:
+        form = AuthenticationForm()
+    return render(request, 'login.html', {'form': form})
 
 
 # registration form
 def register(request):
-    if request.method == "POST":
-        username = request.POST.get('username')
-        email = request.POST.get('email')
-        password = request.POST.get('password')
-        user = create_player(username, email, password)
-        login(request, user)  # Log in the newly created user
-        return redirect('index')
-    return render(request, 'register.html')  # Show the registration form again if not POST
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            return redirect('login')  # Redirect to a success page or home page
+    else:
+        form = UserCreationForm()
+    return render(request, 'register.html', {'form': form}) # Show the registration form again if not POST
