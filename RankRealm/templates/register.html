@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block title %}Login | Rank Realm{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-4 offset-4">
+        <div class="card mt-5 mb-3">
+            <form action="/" novalidate class="validated-form" method="post">
+                {% csrf_token %}
+                <h1 class="text-center my-5" id="welcome">Register</h1>
+                <div class="card-body">
+                    <input class="form-control" type="text" name="username" placeholder="Username" required>
+                </div>
+                <div class="card-body">
+                    <input class="form-control" type="email" name="email" placeholder="Email" required>
+                </div>
+                <div class="card-body">
+                    <input class="form-control" type="password" name="password" placeholder="Password" required>
+                </div>
+                <div class="card-body">
+                    <input class="form-control" type="password" name="password" placeholder="Verify Password" required>
+                </div>
+                <div class="card-body mb-3">
+                    <button class="btn btn-primary">Register</button>
+                    <a href="/register" class="card-link btn btn-link">Back to login</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock content %}

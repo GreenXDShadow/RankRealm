@@ -1,36 +1,29 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="../static/style.css">
-<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
-<title>Login | Rank Realm</title>
-<script>
-function switchForm() {
-    var loginForm = document.getElementById("loginForm");
-    var registerForm = document.getElementById("registerForm");
-    if (loginForm.style.display === "none") {
-        loginForm.style.display = "block";
-        registerForm.style.display = "none";
-    } else {
-        loginForm.style.display = "none";
-        registerForm.style.display = "block";
-    }
-}
-</script>
-</head>
-<header>
-    <h2 class="logo">Logo</h2>
-    <nav class="navigation">
-        <a href="homepage.html">Home</a>
-        <a href="games.html">Games</a>
-        <a href="event.html">Events</a>
-        <a href="#">About</a>
-        <a href="#">Contact</a>
-    </nav>
-</header>
-<body>
-<div class="wrapper">
+{% extends "base.html" %}
+{% block title %}Login | Rank Realm{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-4 offset-4">
+        <div class="card mt-5 mb-3">
+            <form action="/" novalidate class="validated-form" method="post">
+                {% csrf_token %}
+                <h1 class="text-center my-5" id="welcome">Welcome Back!</h1>
+                <div class="card-body">
+                    <input class="form-control" type="text" name="username" placeholder="Username" required>
+                </div>
+                <div class="card-body">
+                    <input class="form-control" type="password" name="password" placeholder="Password" required>
+                </div>
+                <div class="card-body mb-3">
+                    <button class="btn btn-primary">Login</button>
+                    <a href="/register/new" class="card-link btn btn-outline-secondary">Register</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- <div class="wrapper">
     <form id="loginForm" action="">
         <h1>Welcome Back!</h1>
         <div class="input-box">
@@ -61,6 +54,5 @@ function switchForm() {
             <button type="button" onclick="switchForm()">Back to login</button>
         </div>
     </form>
-</div>
-</body>
-</html>
+</div> -->
+{% endblock %}
