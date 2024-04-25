@@ -2,12 +2,13 @@
 {% block title %}Login | Rank Realm{% endblock %}
 
 {% block content %}
+{% include 'navbar.html' %}
 <div class="row">
     <div class="col-4 offset-4">
         <div class="card mt-5 mb-3">
             <form method="post">
                 {% csrf_token %}
-                <h1 class="text-center my-5" id="welcome">Welcome Back!</h1>
+                <h1 class="text-center my-5" id="welcome">Welcome!</h1>
                 <div class="card-body">
                     {{ form.as_p }}
                 </div>
