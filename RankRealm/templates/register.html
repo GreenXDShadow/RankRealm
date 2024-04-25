@@ -2,6 +2,8 @@
 {% block title %}Login | Rank Realm{% endblock %}
 
 {% block content %}
+{% include 'navbar.html' %}
+
 <div class="row">
     <div class="col-4 offset-4">
         <div class="card mt-5 mb-3">
@@ -22,7 +24,7 @@
                 </div>
                 <div class="card-body mb-3">
                     <button class="btn btn-primary">Register</button>
-                    <a href="/register" class="card-link btn btn-link">Back to login</a>
+                    <a href="/login" class="card-link btn btn-link">Back to login</a>
                 </div>
             </form>
         </div>

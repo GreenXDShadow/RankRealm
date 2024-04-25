@@ -2,12 +2,13 @@
 {% block title %}Login | Rank Realm{% endblock %}
 
 {% block content %}
+{% include 'navbar.html' %}
 <div class="row">
     <div class="col-4 offset-4">
         <div class="card mt-5 mb-3">
             <form action="/" novalidate class="validated-form" method="post">
                 {% csrf_token %}
-                <h1 class="text-center my-5" id="welcome">Welcome Back!</h1>
+                <h1 class="text-center my-5" id="welcome">Welcome!</h1>
                 <div class="card-body">
                     <input class="form-control" type="text" name="username" placeholder="Username" required>
                 </div>
@@ -16,7 +17,7 @@
                 </div>
                 <div class="card-body mb-3">
                     <button class="btn btn-primary">Login</button>
-                    <a href="/register/new" class="card-link btn btn-outline-secondary">Register</a>
+                    <a href="/register" class="card-link btn btn-outline-secondary">Register</a>
                 </div>
             </form>
         </div>

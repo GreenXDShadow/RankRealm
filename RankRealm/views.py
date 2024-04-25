@@ -8,7 +8,7 @@ from .signals import *
 
 
 def index(request):
-    return HttpResponse("Hello, world. You're at the index page.")
+    return render(request, 'index.html')
 
 
 def gameinfo(request, game_id):
